@@ -30,3 +30,4 @@ private:
     static std::string escape_json(const std::string& s);
     static bool parse_line(const std::string& line, ApplicationRecord& out);
 };
+//组员C：组队申请/同意/拒绝、聊天空间、互评反馈

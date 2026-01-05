@@ -137,3 +137,4 @@ long long ApplicationStorage::next_id(std::string& err) const {
     for (auto& a : all) mx = std::max(mx, a.id);
     return mx + 1;
 }
+//组员C：组队申请/同意/拒绝、聊天空间、互评反馈
