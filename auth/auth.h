@@ -32,3 +32,4 @@ private:
     static std::string now_iso8601();
     static std::string weak_hash(const std::string& s);
 };
+//组员A：登录注册、密码管理、资料更新

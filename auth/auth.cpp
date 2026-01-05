@@ -156,3 +156,4 @@ AuthResult AuthService::delete_user(const std::string& username) {
     }
     return {true, "User deleted."};
 }
+//组员A：登录注册、密码管理、资料更新
