@@ -34,7 +34,7 @@ std::string AuthService::now_iso8601() {
     return oss.str();
 }
 
-// 作业占位 hash（别用于生产）
+// 作业占位 hash
 std::string AuthService::weak_hash(const std::string& s) {
     std::hash<std::string> h;
     auto v = h(s);
@@ -128,7 +128,7 @@ AuthResult AuthService::update_study_info(const std::string& username,
     return {true, "Profile updated."};
 }
 
-// ✅ 重置密码（用户自己登录后改密码，或管理员重置用同一个接口）
+//  重置密码（用户自己登录后改密码，或管理员重置用同一个接口）
 AuthResult AuthService::reset_password(const std::string& username, const std::string& new_password) {
     if (!is_valid_password(new_password)) {
         return {false, "Invalid password (6-64 chars)."};
@@ -148,7 +148,7 @@ AuthResult AuthService::reset_password(const std::string& username, const std::s
     return {true, "Password reset."};
 }
 
-// ✅ 删除用户（管理员面板用）
+// 删除用户（管理员面板用）
 AuthResult AuthService::delete_user(const std::string& username) {
     std::string err;
     if (!storage_.delete_user(username, err)) {

@@ -20,7 +20,7 @@ public:
                                  const std::string& location,
                                  const std::string& time);
 
-    // ✅ 新增：重置密码 + 删除用户
+    
     AuthResult reset_password(const std::string& username, const std::string& new_password);
     AuthResult delete_user(const std::string& username);
 
