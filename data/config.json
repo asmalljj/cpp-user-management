@@ -2,6 +2,6 @@
   "w_goal": 0.4,
   "w_location": 0.3,
   "w_time": 0.3,
-  "strategy": "rule",
+  "strategy": "weighted",
   "topN": 5
 }
