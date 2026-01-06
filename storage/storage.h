@@ -12,7 +12,7 @@ struct UserRecord {
     long long uid = 0;
     std::string nickname;
 
-    // ✅ 学习信息
+    // 学习信息
     std::string goal;       // 学习目标
     std::string location;   // 学习地点
     std::string time;       // 学习时间/学习时段
