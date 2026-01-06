@@ -8,6 +8,7 @@
 #include "matching/matcher.h"
 #include "matching/matching_config.h"
 #include "analytics/analytics.h"
+#include "study/task.h"
 
 
 static constexpr const char* ADMIN_PASSWORD = "admin123";
@@ -16,6 +17,7 @@ const std::string APP_FILE   = "data/applications.jsonl";
 const std::string TEAM_FILE  = "data/teams.jsonl";
 const std::string MSG_FILE   = "data/messages.jsonl";
 const std::string REV_FILE   = "data/reviews.jsonl";
+const std::string TASK_FILE  = "data/tasks.jsonl";
 
 // ===== 用户登录后的菜单 =====
 static void logged_in_menu(AuthService& auth,
@@ -59,6 +61,8 @@ static void logged_in_menu(AuthService& auth,
         std::cout << "9) Enter team chat room\n";
         std::cout << "10) Review teammate\n";
         std::cout << "11) Analytics dashboard\n";
+        std::cout << "12) My Study Tasks\n";
+        std::cout << "13) Team Study Plan\n";
 
         std::cout << "\n0) Logout\n";
         std::cout << "> ";
@@ -220,7 +224,15 @@ static void logged_in_menu(AuthService& auth,
             std::string e;
             analytics_dashboard(USERS_FILE, TEAM_FILE, REV_FILE, e);
             if (!e.empty()) std::cout << "[ERR] " << e << "\n";
+        }else if (op == 12) {
+            std::string e;
+            my_study_tasks_menu(username, TASK_FILE, e);
         }
+        else if (op == 13) {
+            std::string e;
+            team_study_plan_menu(username, TEAM_FILE, TASK_FILE, e);
+        }
+
     }
 }
 
