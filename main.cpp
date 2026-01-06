@@ -28,12 +28,12 @@ static void logged_in_menu(AuthService& auth,
             std::cout << "[ERR] " << err << "\n";
             return;
         }
-        if (!uopt) {
+        if (!uopt) {//如果没有找到该用户
             std::cout << "[ERR] User not found.\n";
             return;
         }
 
-        const auto& u = *uopt;
+        const auto& u = *uopt;//后续就可以用 u 访问用户的所有属性
 
         std::cout << "\n== User Panel ==\n";
         std::cout << "uid: " << u.uid << "\n";
@@ -81,7 +81,7 @@ static void logged_in_menu(AuthService& auth,
         else if (op == 2) {
             std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
             std::string goal, location, time;
-
+            //从标准输入读取一整行内容，直到用户按下回车为止，并把这行内容存到对应的变量
             std::cout << "goal: ";
             std::getline(std::cin, goal);
             std::cout << "location: ";
