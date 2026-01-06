@@ -25,8 +25,8 @@ bool MetaStorage::load_or_init(Meta& out, std::string& err) {
     pos += std::string("\"version\":").size();
     out.version = std::stoi(s.substr(pos));
     return true;
-}//查找 "version" 字段，如果找不到就报错；找到后，提取 version 的值，赋给 out.version，返回 true。
-
+}//查找字符串 s 里有没有 "version": 这个字段。如果找不到，报错并返回 false。
+// 找到后，提取 version 后面的数字，赋值给 out.version，返回 true
 bool MetaStorage::save(const Meta& meta, std::string& err) {
     std::ofstream ofs(meta_file_, std::ios::trunc);
     if (!ofs) {
